@@ -8,9 +8,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const client = twillio(accountSid, authToken);
     const auth = req.headers.authorization;
     if (auth === 'Testing1234') {
-        client.messages
+        await client.messages
             .create({
-                body: 'Testing :)',
+                body: `Create your todo list the night before with categories: %0a Work %0a Health %0a Relationships %0a Self Improvement %0a https://jamesclear.com/continuous-improvement`,
                 from: '+12694754126',
                 to: `+1${myCellPhoneNumber}`
             })
@@ -18,5 +18,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     } else {
         return res.status(401).end();
     }
-    return res.status(200).end();
 }
