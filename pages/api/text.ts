@@ -10,7 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (auth === 'Testing1234') {
         await client.messages
             .create({
-                body: `Create your todo list the night before with categories: \n Work \n Health \n Relationships \n Self Improvement \n Get better every day: https://jamesclear.com/continuous-improvement`,
+                body: `\nCreate your todo list the night before with categories: \n- Work \n- Health \n- Relationships \n- Self Improvement \n \n Get better every day: https://jamesclear.com/continuous-improvement`,
                 from: '+12694754126',
                 to: `+1${myCellPhoneNumber}`
             })
